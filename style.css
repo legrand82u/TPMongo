@@ -1,0 +1,30 @@
+.map-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+.map-frame {
+  border: 1px solid black;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#map {
+  height: 100%;
+}
+
+body {
+  margin : 0;
+}
+
+.filtreAffichage {
+  position : absolute;
+  background-color: white;
+  width: auto;
+  height: auto;
+  padding : 5px;
+  border : 1px solid black;
+  z-index: 10000;
+  margin-left : 6%;
+  margin-top: 20px;
+}

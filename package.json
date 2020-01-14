@@ -1,0 +1,26 @@
+{
+  "name": "tp2mongo-duroy-legrand",
+  "version": "1.0.0",
+  "description": "Rendu du TP2 de Mongo - Affichage de points sur une carte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "restart": "sudo docker-compose stop && sudo docker rm mongo-docker && sudo rm -rf mongo-volume && sudo docker-compose up -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legrand82u/TPMongo.git"
+  },
+  "author": "Legrand Théo - Duroy Maxence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/legrand82u/TPMongo/issues"
+  },
+  "homepage": "https://github.com/legrand82u/TPMongo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-server": "0.12.1",
+    "mongodb": "3.4.1"
+  }
+}
