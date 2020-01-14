@@ -1,2 +1,6 @@
 /mongo-volume
 /mongo-volume/*
+.idea/*
+.idea
+node_modules/*
+node_modules
