@@ -11,3 +11,4 @@ db.createUser (
     }
 );
 
+db.createCollection('parking');
