@@ -1,3 +1,5 @@
+# TD2 - MongoDB - LEGRAND Théo - DUROY Maxence
+
 * Lancer le container : `sudo docker-compose up -d`
 
 * Se connecter à Mongo depuis le terminal : `mongo localhost:27017 -u naennai -p`
@@ -11,9 +13,10 @@
 # Comment démarrer le projet 
 
 * `git pull https://github.com/legrand82u/TPMongo.git`
+* `cd TPMongo`
 * `npm install --save`
+* `npm install -g http-server`
 * `docker-compose up -d`
-* Pour l'instant insérer des données à la main dans le MongoDB
 * `node express.js`
 * `http-server -p 12345`
 * Accèder au site sur localhost:12345
