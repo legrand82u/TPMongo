@@ -41,7 +41,7 @@ function getParkings() {
 function displayParkings(parkings) {
     parkings.json().then((data) => {
         for (const parking of data) {
-            const marker = L.marker([parking.latitude,parking.longitude], { icon: parkingIcon});
+            const marker = L.marker([parking.geometry.y,parking.geometry.x], { icon: parkingIcon});
             marker.addTo(map);
             marker.bindPopup(`<p>${parking.name}</p>`);
         }

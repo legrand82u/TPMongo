@@ -25,7 +25,8 @@ MongoClient.connect(url,{ useUnifiedTopology: true },(error,client) => {
         return result.json();
     }).then((result) => {
         for (const item of result.features){
-            log item;
+            db.collection('parking').insertOne(item);
+
         }
     });
 });
