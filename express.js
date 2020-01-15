@@ -17,6 +17,8 @@ MongoClient.connect(url,{ useUnifiedTopology: true },(error,client) => {
         throw error;
     }
     const db = client.db('firstmongodb');
+    db.collection('parking').drop()
+    db.createCollection('parking');
     fetch(urlParking)
     .then( (result) => {
         if (result.status > 400){
@@ -29,6 +31,11 @@ MongoClient.connect(url,{ useUnifiedTopology: true },(error,client) => {
 
         }
     });
+    db.collection('cinema').drop();
+    db.createCollection('cinema');
+    db.collection('cinema').insertOne({"nom" : "UGC Saint-Jean","x" : 6.179,"y" : 48.6899 });
+    db.collection('cinema').insertOne({"nom" : "UGC Ludres","x" : 6.1751,"y" : 48.6178 });
+    db.collection('cinema').insertOne({"nom" : "Kinépolis","x" : 6.1964,"y" : 48.6919 });
 });
 
 app.use(cors());
@@ -44,7 +51,20 @@ app.get('/parkings', (req, res) => {
         res.status(500);
         res.end(JSON.stringify({type: "error", error: 500, message: "Tout a pété !"}));
     });  
-})
+});
+
+app.get('/cinemas', (req, res) => {
+    console.log("On entre sur /cinemas !")
+    getData('cinemas').then((cinemas) => {
+        console.log(cinemas);
+        res.send(cinemas);
+    })
+        .catch(()=> {
+            console.log("Une erreur a popay");
+            res.status(500);
+            res.end(JSON.stringify({type: "error", error: 500, message: "Tout a pété !"}));
+        });
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
