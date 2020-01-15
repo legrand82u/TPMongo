@@ -15,8 +15,6 @@
 * `git pull https://github.com/legrand82u/TPMongo.git`
 * `cd TPMongo`
 * `npm install --save`
-* `npm install -g http-server`
 * `docker-compose up -d`
 * `node express.js`
-* `http-server -p 12345`
-* Accèder au site sur localhost:12345
+* Accèder au site sur localhost:3000

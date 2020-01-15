@@ -1,4 +1,4 @@
-const map= L.map('map').setView([48.7037, 6.1306], 12);
+const map= L.map('map').setView([48.6899, 6.179], 15);
 
 const parkingIcon = L.icon({
     iconUrl: './images/park.svg',

@@ -1,16 +1,17 @@
 // Imports nécessaires à l'utilisation de Express
 const express = require('./node_modules/express/index.js')
 const app = express()
-// Permet d'effectuer les requêtes CORS
-var cors = require('cors')
+
 const port = 3000;
-const fetch = require("node-fetch");
+//const fetch = require("node-fetch");
+const fetch = require('./node_modules/node-fetch/');
 // Imports nécessaires à l'utilisation de Mongo
 const mongo = require('./node_modules/mongodb/index.js');
 const MongoClient = mongo.MongoClient;
 const url = 'mongodb://localhost:27017/';
 const urlParking = "https://geoservices.grand-nancy.org/arcgis/rest/services/public/VOIRIE_Parking/MapServer/0/query?where=1%3D1&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=nom%2Cadresse%2Cplaces%2Ccapacite&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&queryByDistance=&returnExtentsOnly=false&datumTransformation=&parameterValues=&rangeValues=&f=pjson";
 
+app.use(express.static('.'));
 MongoClient.connect(url, {useUnifiedTopology: true}, (error, client) => {
     if (error) {
         console.log(error);
@@ -39,7 +40,10 @@ MongoClient.connect(url, {useUnifiedTopology: true}, (error, client) => {
     }
 });
 
-app.use(cors());
+
+app.get('/', (req, res) => {
+    res.sendfile('./index.html');
+});
 
 app.get('/parkings', (req, res) => {
     console.log("On entre sur /parkings !")
